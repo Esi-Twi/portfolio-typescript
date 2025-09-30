@@ -271,7 +271,7 @@ const PortfolioWebsite: React.FC = () => {
           </div>
         </section>
 
-        <div className='w-[80%] mx-auto'>
+        <div className='w-[90%] mx-auto'>
           <section className="about section !mx-[5rem]" id="about">
             <h2 className="title">About me</h2>
             <div className="about-container container grid">
