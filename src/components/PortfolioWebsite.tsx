@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {Code} from 'lucide-react'
+import { Code } from 'lucide-react'
 
 
 interface TimelineItem {
@@ -29,10 +29,10 @@ const PortfolioWebsite: React.FC = () => {
   };
 
   const works = [
-    { id: 1, cat: 'web', img: 'https://i.postimg.cc/43Th5VXJ/work-1.png', title: 'Web Design' },
-    { id: 2, cat: 'app', img: 'https://i.postimg.cc/sXLjnC5p/work-2.png', title: 'App Design' },
-    { id: 3, cat: 'design', img: 'https://i.postimg.cc/QNB1jXYZ/work-3.png', title: 'Brand Design' },
-    { id: 4, cat: 'app', img: 'https://i.postimg.cc/s2DGqyG8/work-4.png', title: 'App Design' },
+    // { id: 1, cat: 'web', img: 'https://i.postimg.cc/43Th5VXJ/work-1.png', title: 'Web Design' },
+    // { id: 2, cat: 'app', img: 'https://i.postimg.cc/sXLjnC5p/work-2.png', title: 'App Design' },
+    // { id: 3, cat: 'design', img: 'https://i.postimg.cc/QNB1jXYZ/work-3.png', title: 'Brand Design' },
+    // { id: 4, cat: 'app', img: 'https://i.postimg.cc/s2DGqyG8/work-4.png', title: 'App Design' },
     { id: 5, cat: 'web', img: 'https://i.postimg.cc/TYVyPhrF/work-5.png', title: 'Brand Design' },
     { id: 6, cat: 'design', img: 'https://i.postimg.cc/wMdqKcbv/work-6.png', title: 'Web Design' }
   ];
@@ -96,8 +96,8 @@ const PortfolioWebsite: React.FC = () => {
       period: 'Apr 2025 - May 2025',
       subtitle: 'ThinkTech Digital',
       skills: [
-       ' Built UI and ensured they were responsive.',
-       ' Collaborated with other frontend developers and backend developers to build responsive and functional web solutions',
+        ' Built UI and ensured they were responsive.',
+        ' Collaborated with other frontend developers and backend developers to build responsive and functional web solutions',
       ],
       icon: <Code className="w-6 h-6" />,
       position: 'right'
@@ -371,7 +371,7 @@ const PortfolioWebsite: React.FC = () => {
 
         </section>
 
-{/* work experience */}
+        {/* work experience */}
         <div className="min-h-screen mt-10 py-12 px-4 sm:px-6 lg:px-8">
           <h2 className="title">My Experience</h2>
 
@@ -420,23 +420,66 @@ const PortfolioWebsite: React.FC = () => {
           </div>
         </div>
 
+        {/* projects */}
         <section className="work section" id="projects">
-          <h2 className="title">Project</h2>
+          <h2 className="title">My Projects</h2>
           <div className="work-filters">
-            {['all', 'web', 'app', 'design'].map(f => (
+            {/* {['all', 'web', 'app', 'design'].map(f => (
               <button key={f} className={`work-item glass-card ${activeFilter === f ? 'active' : ''}`} onClick={() => setActiveFilter(f)}>{f.charAt(0).toUpperCase() + f.slice(1)}</button>
-            ))}
+            ))} */}
           </div>
           <div className="work-container container grid">
-            {filtered.map(work => (
-              <div key={work.id} className="work-card glass-card">
-                <img src={work.img} alt="" className="work-img" />
-                <h3>{work.title}</h3>
-                <button className="work-btn" onClick={() => setPopup({ open: true, item: work })}>
+            {/* {filtered.map(work => (
+              <div key={work.id} className="work-card glass-card w-3/7">
+                <img src={work.img} alt="" className="rounded-xl h-[40vh] w-100" />
+                <h3 className='text-orange-600 font-bold mt-2 mb-2 text-2xl'>Dunon Pharmacy Mangement System</h3>
+                <ul className='list-disc ml-10'>
+                  <li>Has role-based dashboards for Admins and Pharmacist to manage a pharmacy.</li>
+                  <li>Implemented backend for managing drugs, users and sales with RESTful APIs.</li>
+                  <li>Implemented creating of sales for pharmacist and printing of tickets as well.</li>
+                  <li>Designed schemas for drugs, sales and users using mongoose.</li>
+                  <li>Built a data visualization board to help Admins make informed decisions.</li>
+                  <li>Designed a responsive UI and used zustand for state management.</li>
+                </ul>
+                {/* <h3>{work.title}</h3> */}
+            {/* <button className="work-btn" onClick={() => setPopup({ open: true, item: work })}>
                   Demo <i className="uil uil-arrow-right"></i>
-                </button>
+                </button> *
               </div>
-            ))}
+            ))} */}
+
+            <div className="work-card glass-card">
+              <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjhUGnZj4LWVTuS-m3i_aUyaTLlj1PDsOkYA&s' alt="" className="rounded-xl h-[40vh] w-100" />
+              <h3 className='text-orange-600 font-bold mt-2 mb-2 text-2xl'>Dunon Pharmacy Mangement System</h3>
+              <ul className='list-disc ml-10'>
+                <li>Has role-based dashboards for Admins and Pharmacist to manage a pharmacy.</li>
+                <li>Implemented backend for managing drugs, users and sales with RESTful APIs.</li>
+                <li>Implemented creating of sales for pharmacist and printing of tickets as well.</li>
+                <li>Designed schemas for drugs, sales and users using mongoose.</li>
+                <li>Built a data visualization board to help Admins make informed decisions.</li>
+                <li>Designed a responsive UI and used zustand for state management.</li>
+              </ul>
+              {/* <button className="work-btn" onClick={() => setPopup({ open: true, item: work })}>
+                  Demo <i className="uil uil-arrow-right"></i>
+                </button> */}
+            </div>
+
+            <div className="work-card glass-card ">
+              <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjeHfJEYfMicfPAwzi1uV0WjsBMVV8uKI8EzjVG01rByY_Rz6ozhuONEE&s' alt="" className="rounded-xl h-[40vh] w-100" />
+              <h3 className='text-orange-600 font-bold mt-2 mb-2 text-2xl'>Chips 'n' Munch</h3>
+              <ul className='list-disc ml-10'>
+                <li>A website to display for a chips business.</li>
+                <li>Displays types of chips available, contact and seller detials.</li>
+              </ul>
+              <a
+                href="https://chips-website-mauve.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="work-btn z-30 relative"
+              >
+                Demo <i className="uil uil-arrow-right"></i>
+              </a>
+            </div>
           </div>
         </section>
 
