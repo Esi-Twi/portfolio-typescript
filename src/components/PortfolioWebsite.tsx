@@ -271,34 +271,35 @@ const PortfolioWebsite: React.FC = () => {
           </div>
         </section>
 
-        <section className="about section" id="about">
-          <h2 className="title">About me</h2>
-          <div className="about-container container grid">
-            <img src="../../assets/me.jpg" alt="me" className="about-img" />
-            <div>
-              <h3>Hi, I'm Esi Twi Tawiah</h3>
-              <p>I'm a developer with experience in JavaScript, and expertise in frameworks like React, Node.js, Express.js   and MongoDB.I create solutions that are not only functional but also user-friendly and visually appealing.
-                I love creating efficient, scalable, and user-friendly solutions that solve real-world problems.
-              </p>
-              <div className="about-info">
-                {[{ icon: 'award', title: 'Skills', sub: 'MERN Stack' }, { icon: 'suitcase-alt', title: 'Experience', sub: '2 Internships' }, { icon: 'award', title: '4+', sub: 'Hackations' }].map((item, i) => (
-                  <div key={i} className="about-box">
-                    <i className={`uil uil-${item.icon} about-icon`}></i>
-                    <h3>{item.title}</h3>
-                    <span>{item.sub}</span>
-                  </div>
-                ))}
+        <div className='w-[80%] mx-auto'>
+          <section className="about section !mx-[5rem]" id="about">
+            <h2 className="title">About me</h2>
+            <div className="about-container container grid">
+              <img src="../../assets/me.jpg" alt="me" className="about-img" />
+              <div>
+                <h3>Hi, I'm Esi Twi Tawiah</h3>
+                <p>I'm a developer with experience in JavaScript, and expertise in frameworks like React, Node.js, Express.js   and MongoDB.I create solutions that are not only functional but also user-friendly and visually appealing.
+                  I love creating efficient, scalable, and user-friendly solutions that solve real-world problems.
+                </p>
+                <div className="about-info">
+                  {[{ icon: 'award', title: 'Skills', sub: 'MERN Stack' }, { icon: 'suitcase-alt', title: 'Experience', sub: '2 Internships' }, { icon: 'award', title: '4+', sub: 'Hackations' }].map((item, i) => (
+                    <div key={i} className="about-box">
+                      <i className={`uil uil-${item.icon} about-icon`}></i>
+                      <h3>{item.title}</h3>
+                      <span>{item.sub}</span>
+                    </div>
+                  ))}
+                </div>
+                <button className="btn" onClick={() => scroll('contact')}>
+                  <i className="uil uil-navigator"></i>Contact me
+                </button>
               </div>
-              <button className="btn" onClick={() => scroll('contact')}>
-                <i className="uil uil-navigator"></i>Contact me
-              </button>
             </div>
-          </div>
-        </section>
+          </section>
 
-        <section className="skills section" id="skills">
-          <h2 className="title">My Skills</h2>
-          {/* <div className="skills-container container grid">
+          <section className="skills section" id="skills">
+            <h2 className="title">My Skills</h2>
+            {/* <div className="skills-container container grid">
             <div>
               {[{ id: 'frontend', icon: 'brackets-curly', title: 'Frontend' }, { id: 'backend', icon:'server-network', title: 'Backend' }, { id: 'database', icon:'swatchbook', title: 'Database' }].map(skill => (
                 <div key={skill.id} className={`skills-header glass-card ${activeSkill === skill.id ? 'active' : ''}`} onClick={() => setActiveSkill(skill.id)}>
@@ -324,112 +325,112 @@ const PortfolioWebsite: React.FC = () => {
             </div>
           </div> */}
 
-          <div className="skills-container container grid">
-            <div className="skills-content">
-              <h1 className='text-3xl font-bold ml-3 text-violet-600'>FRONTEND</h1>
-              {skills['frontend']?.map((skill, i) => (
-                <div key={i} className="skills-data">
-                  <div className="skills-titles">
-                    <h3>{skill.n}</h3>
-                    <span>{skill.p}%</span>
+            <div className="skills-container container grid">
+              <div className="skills-content">
+                <h1 className='text-3xl font-bold ml-3 text-violet-600'>FRONTEND</h1>
+                {skills['frontend']?.map((skill, i) => (
+                  <div key={i} className="skills-data">
+                    <div className="skills-titles">
+                      <h3>{skill.n}</h3>
+                      <span>{skill.p}%</span>
+                    </div>
+                    <div className="skills-bar">
+                      <div className="skills-per" style={{ width: `${skill.p}%` }}></div>
+                    </div>
                   </div>
-                  <div className="skills-bar">
-                    <div className="skills-per" style={{ width: `${skill.p}%` }}></div>
+                ))}
+              </div>
+
+              <div className="skills-content">
+                <h1 className='text-3xl font-bold ml-3 text-violet-600'>BACKEND</h1>
+                {skills['backend']?.map((skill, i) => (
+                  <div key={i} className="skills-data">
+                    <div className="skills-titles">
+                      <h3>{skill.n}</h3>
+                      <span>{skill.p}%</span>
+                    </div>
+                    <div className="skills-bar">
+                      <div className="skills-per" style={{ width: `${skill.p}%` }}></div>
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+
+                <h1 className='text-3xl font-bold ml-3 text-violet-600 mt-10'>DATABASE</h1>
+                {skills['database']?.map((skill, i) => (
+                  <div key={i} className="skills-data">
+                    <div className="skills-titles">
+                      <h3>{skill.n}</h3>
+                      <span>{skill.p}%</span>
+                    </div>
+                    <div className="skills-bar">
+                      <div className="skills-per" style={{ width: `${skill.p}%` }}></div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            <div className="skills-content">
-              <h1 className='text-3xl font-bold ml-3 text-violet-600'>BACKEND</h1>
-              {skills['backend']?.map((skill, i) => (
-                <div key={i} className="skills-data">
-                  <div className="skills-titles">
-                    <h3>{skill.n}</h3>
-                    <span>{skill.p}%</span>
-                  </div>
-                  <div className="skills-bar">
-                    <div className="skills-per" style={{ width: `${skill.p}%` }}></div>
-                  </div>
-                </div>
-              ))}
+          </section>
 
-              <h1 className='text-3xl font-bold ml-3 text-violet-600 mt-10'>DATABASE</h1>
-              {skills['database']?.map((skill, i) => (
-                <div key={i} className="skills-data">
-                  <div className="skills-titles">
-                    <h3>{skill.n}</h3>
-                    <span>{skill.p}%</span>
+          {/* work experience */}
+          <div className="min-h-screen mt-10 py-12 px-4 sm:px-6 lg:px-8">
+            <h2 className="title">My Experience</h2>
+
+            <div className="max-w-6xl mx-auto">
+              <div className="relative">
+                {/* Central Timeline Line */}
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-red-600 via-orange-500 to-red-600"></div>
+
+                {/* Timeline Items */}
+                {timelineData.map((item, index) => (
+                  <div key={index} className="relative mb-16 last:mb-0">
+                    <div className={`flex items-center ${item.position === 'left' ? 'flex-row-reverse' : 'flex-row'}`}>
+                      {/* Content Card */}
+                      <div className={`w-5/12 ${item.position === 'left' ? 'pr-12' : 'pl-12'}`}>
+                        <div className="bg-gradient-to-br from-orange-800 to-orange-700 border border-red-900/30 rounded-lg p-6 shadow-xl hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-300">
+                          <h3 className="text-2xl font-bold text-white mb-2">{item.title}</h3>
+                          <p className="text-orange-400 text-sm mb-3">{item.subtitle}</p>
+                          <ul className="space-y-2">
+                            {item.skills.map((skill, skillIndex) => (
+                              <li key={skillIndex} className="text-gray-300 text-sm flex items-start">
+                                <span className="text-red-500 mr-2 mt-1">•</span>
+                                <span>{skill}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+
+                      {/* Center Icon */}
+                      <div className="absolute left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+                        <div className="w-14 h-14 rounded-full bg-gradient-to-br from-red-600 to-orange-500 flex items-center justify-center text-white shadow-lg shadow-orange-500/50 z-10">
+                          {item.icon}
+                        </div>
+                      </div>
+
+                      {/* Date Badge */}
+                      <div className={`w-5/12 ${item.position === 'left' ? 'pl-12 text-left' : 'pr-12 text-right'}`}>
+                        <div className="inline-block bg-gradient-to-r from-red-600 to-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
+                          {item.period}
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div className="skills-bar">
-                    <div className="skills-per" style={{ width: `${skill.p}%` }}></div>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
 
-        </section>
-
-        {/* work experience */}
-        <div className="min-h-screen mt-10 py-12 px-4 sm:px-6 lg:px-8">
-          <h2 className="title">My Experience</h2>
-
-          <div className="max-w-6xl mx-auto">
-            <div className="relative">
-              {/* Central Timeline Line */}
-              <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-red-600 via-orange-500 to-red-600"></div>
-
-              {/* Timeline Items */}
-              {timelineData.map((item, index) => (
-                <div key={index} className="relative mb-16 last:mb-0">
-                  <div className={`flex items-center ${item.position === 'left' ? 'flex-row-reverse' : 'flex-row'}`}>
-                    {/* Content Card */}
-                    <div className={`w-5/12 ${item.position === 'left' ? 'pr-12' : 'pl-12'}`}>
-                      <div className="bg-gradient-to-br from-orange-800 to-orange-700 border border-red-900/30 rounded-lg p-6 shadow-xl hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-300">
-                        <h3 className="text-2xl font-bold text-white mb-2">{item.title}</h3>
-                        <p className="text-orange-400 text-sm mb-3">{item.subtitle}</p>
-                        <ul className="space-y-2">
-                          {item.skills.map((skill, skillIndex) => (
-                            <li key={skillIndex} className="text-gray-300 text-sm flex items-start">
-                              <span className="text-red-500 mr-2 mt-1">•</span>
-                              <span>{skill}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
-
-                    {/* Center Icon */}
-                    <div className="absolute left-1/2 transform -translate-x-1/2 flex flex-col items-center">
-                      <div className="w-14 h-14 rounded-full bg-gradient-to-br from-red-600 to-orange-500 flex items-center justify-center text-white shadow-lg shadow-orange-500/50 z-10">
-                        {item.icon}
-                      </div>
-                    </div>
-
-                    {/* Date Badge */}
-                    <div className={`w-5/12 ${item.position === 'left' ? 'pl-12 text-left' : 'pr-12 text-right'}`}>
-                      <div className="inline-block bg-gradient-to-r from-red-600 to-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
-                        {item.period}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* projects */}
-        <section className="work section" id="projects">
-          <h2 className="title">My Projects</h2>
-          <div className="work-filters">
-            {/* {['all', 'web', 'app', 'design'].map(f => (
+          {/* projects */}
+          <section className="work section" id="projects">
+            <h2 className="title">My Projects</h2>
+            <div className="work-filters">
+              {/* {['all', 'web', 'app', 'design'].map(f => (
               <button key={f} className={`work-item glass-card ${activeFilter === f ? 'active' : ''}`} onClick={() => setActiveFilter(f)}>{f.charAt(0).toUpperCase() + f.slice(1)}</button>
             ))} */}
-          </div>
-          <div className="work-container container grid">
-            {/* {filtered.map(work => (
+            </div>
+            <div className="work-container container grid">
+              {/* {filtered.map(work => (
               <div key={work.id} className="work-card glass-card w-3/7">
                 <img src={work.img} alt="" className="rounded-xl h-[40vh] w-100" />
                 <h3 className='text-orange-600 font-bold mt-2 mb-2 text-2xl'>Dunon Pharmacy Mangement System</h3>
@@ -442,57 +443,57 @@ const PortfolioWebsite: React.FC = () => {
                   <li>Designed a responsive UI and used zustand for state management.</li>
                 </ul>
                 {/* <h3>{work.title}</h3> */}
-            {/* <button className="work-btn" onClick={() => setPopup({ open: true, item: work })}>
+              {/* <button className="work-btn" onClick={() => setPopup({ open: true, item: work })}>
                   Demo <i className="uil uil-arrow-right"></i>
                 </button> *
               </div>
             ))} */}
 
-            <div className="work-card glass-card">
-              <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjhUGnZj4LWVTuS-m3i_aUyaTLlj1PDsOkYA&s' alt="" className="rounded-xl h-[40vh] w-100" />
-              <h3 className='text-orange-600 font-bold mt-2 mb-2 text-2xl'>Dunon Pharmacy Mangement System</h3>
-              <ul className='list-disc ml-10'>
-                <li>Has role-based dashboards for Admins and Pharmacist to manage a pharmacy.</li>
-                <li>Implemented backend for managing drugs, users and sales with RESTful APIs.</li>
-                <li>Implemented creating of sales for pharmacist and printing of tickets as well.</li>
-                <li>Designed schemas for drugs, sales and users using mongoose.</li>
-                <li>Built a data visualization board to help Admins make informed decisions.</li>
-                <li>Designed a responsive UI and used zustand for state management.</li>
-              </ul>
-              {/* <button className="work-btn" onClick={() => setPopup({ open: true, item: work })}>
+              <div className="work-card glass-card">
+                <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjhUGnZj4LWVTuS-m3i_aUyaTLlj1PDsOkYA&s' alt="" className="rounded-xl h-[40vh] w-100" />
+                <h3 className='text-orange-600 font-bold mt-2 mb-2 text-2xl'>Dunon Pharmacy Mangement System</h3>
+                <ul className='list-disc ml-10'>
+                  <li>Has role-based dashboards for Admins and Pharmacist to manage a pharmacy.</li>
+                  <li>Implemented backend for managing drugs, users and sales with RESTful APIs.</li>
+                  <li>Implemented creating of sales for pharmacist and printing of tickets as well.</li>
+                  <li>Designed schemas for drugs, sales and users using mongoose.</li>
+                  <li>Built a data visualization board to help Admins make informed decisions.</li>
+                  <li>Designed a responsive UI and used zustand for state management.</li>
+                </ul>
+                {/* <button className="work-btn" onClick={() => setPopup({ open: true, item: work })}>
                   Demo <i className="uil uil-arrow-right"></i>
                 </button> */}
-            </div>
+              </div>
 
-            <div className="work-card glass-card ">
-              <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjeHfJEYfMicfPAwzi1uV0WjsBMVV8uKI8EzjVG01rByY_Rz6ozhuONEE&s' alt="" className="rounded-xl h-[40vh] w-100" />
-              <h3 className='text-orange-600 font-bold mt-2 mb-2 text-2xl'>Chips 'n' Munch</h3>
-              <ul className='list-disc ml-10'>
-                <li>A website to display for a chips business.</li>
-                <li>Displays types of chips available, contact and seller detials.</li>
-              </ul>
-              <a
-                href="https://chips-website-mauve.vercel.app"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="work-btn z-30 relative"
-              >
-                Demo <i className="uil uil-arrow-right"></i>
-              </a>
+              <div className="work-card glass-card ">
+                <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjeHfJEYfMicfPAwzi1uV0WjsBMVV8uKI8EzjVG01rByY_Rz6ozhuONEE&s' alt="" className="rounded-xl h-[40vh] w-100" />
+                <h3 className='text-orange-600 font-bold mt-2 mb-2 text-2xl'>Chips 'n' Munch</h3>
+                <ul className='list-disc ml-10'>
+                  <li>A website to display for a chips business.</li>
+                  <li>Displays types of chips available, contact and seller detials.</li>
+                </ul>
+                <a
+                  href="https://chips-website-mauve.vercel.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="work-btn z-30 relative"
+                >
+                  Demo <i className="uil uil-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </section>
+
+          <div className="popup">
+            <div className="popup-content glass-card">
+              <button className="popup-close" onClick={() => setPopup({ open: false })}>&times;</button>
+              <img src={popup.item?.img} alt="" style={{ width: '100%', borderRadius: '.5rem' }} />
+              <h3>{popup.item?.title}</h3>
+              <p>Project details and description would go here.</p>
             </div>
           </div>
-        </section>
 
-        <div className="popup">
-          <div className="popup-content glass-card">
-            <button className="popup-close" onClick={() => setPopup({ open: false })}>&times;</button>
-            <img src={popup.item?.img} alt="" style={{ width: '100%', borderRadius: '.5rem' }} />
-            <h3>{popup.item?.title}</h3>
-            <p>Project details and description would go here.</p>
-          </div>
-        </div>
-
-        {/* <section className="services section" id="services">
+          {/* <section className="services section" id="services">
           <h2 className="title">What I Offer</h2>
           <div className="services-container container grid">
             {services.map((service, i) => (
@@ -505,20 +506,20 @@ const PortfolioWebsite: React.FC = () => {
           </div>
         </section> */}
 
-        <div className="modal">
-          <div className="modal-content glass-card">
-            <button className="modal-close" onClick={() => setModal(null)}>&times;</button>
-            <h3>{services[modal || 0]?.title.replace('<br>', ' ')}</h3>
-            <p>I offer services with quality work to clients and companies</p>
-            <ul>
-              {services[modal || 0]?.items.map((item, i) => (
-                <li key={i} style={{ marginBottom: '.5rem' }}>✓ {item}</li>
-              ))}
-            </ul>
+          <div className="modal">
+            <div className="modal-content glass-card">
+              <button className="modal-close" onClick={() => setModal(null)}>&times;</button>
+              <h3>{services[modal || 0]?.title.replace('<br>', ' ')}</h3>
+              <p>I offer services with quality work to clients and companies</p>
+              <ul>
+                {services[modal || 0]?.items.map((item, i) => (
+                  <li key={i} style={{ marginBottom: '.5rem' }}>✓ {item}</li>
+                ))}
+              </ul>
+            </div>
           </div>
-        </div>
 
-        {/* <section className="testimonials section">
+          {/* <section className="testimonials section">
           <h2 className="title">Testimonials</h2>
           <div className="container">
             <div className="testimonial glass-card">
@@ -539,48 +540,49 @@ const PortfolioWebsite: React.FC = () => {
           </div>
         </section> */}
 
-        <section className="contact section" id="contact">
-          <h2 className="title">Contact me</h2>
-          <div className="contact-container container grid">
-            <div>
-              {[{ icon: 'envelope-edit', title: 'Email', data: 'esitwitawiah@gmail.com' }, { icon: 'whatsapp', title: 'Whatsapp', data: '054 312 9196' }, { icon: 'github', title: 'Github', data: 'Esi-Twi', link: 'https://www./github.com/esi-twi/' }].map((contact, i) => (
-                <>
-                  {contact.link ?
-                    <a href={contact.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}>
-                      <div key={i} className="contact-card glass-card" >
-                        <i className={`uil uil-${contact.icon}`}></i>
-                        <h3>{contact.title}</h3>
-                        <span>{contact.data}</span>
-                      </div>
-                    </a> :
-                    <>
-                      <div key={i} className="contact-card glass-card" >
-                        <i className={`uil uil-${contact.icon}`}></i>
-                        <h3>{contact.title}</h3>
-                        <span>{contact.data}</span>
-                      </div>
-                    </>
-                  }
-                </>
+          <section className="contact section" id="contact">
+            <h2 className="title">Contact me</h2>
+            <div className="contact-container container grid">
+              <div>
+                {[{ icon: 'envelope-edit', title: 'Email', data: 'esitwitawiah@gmail.com' }, { icon: 'whatsapp', title: 'Whatsapp', data: '054 312 9196' }, { icon: 'github', title: 'Github', data: 'Esi-Twi', link: 'https://www./github.com/esi-twi/' }].map((contact, i) => (
+                  <>
+                    {contact.link ?
+                      <a href={contact.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}>
+                        <div key={i} className="contact-card glass-card" >
+                          <i className={`uil uil-${contact.icon}`}></i>
+                          <h3>{contact.title}</h3>
+                          <span>{contact.data}</span>
+                        </div>
+                      </a> :
+                      <>
+                        <div key={i} className="contact-card glass-card" >
+                          <i className={`uil uil-${contact.icon}`}></i>
+                          <h3>{contact.title}</h3>
+                          <span>{contact.data}</span>
+                        </div>
+                      </>
+                    }
+                  </>
 
-              ))}
+                ))}
+              </div>
+              <form className="glass-card" style={{ padding: '2rem', borderRadius: '25px' }}>
+                {['username', 'email', 'phone', 'message'].map(field => (
+                  <div key={field} className="input-container">
+                    {field === 'message' ?
+                      <textarea className="input" placeholder=" " onFocus={() => setFocus({ ...focus, [field]: true })} onBlur={(e) => setFocus({ ...focus, [field]: e.target.value !== '' })}></textarea> :
+                      <input type={field === 'email' ? 'email' : field === 'phone' ? 'tel' : 'text'} className="input" placeholder=" " onFocus={() => setFocus({ ...focus, [field]: true })} onBlur={(e) => setFocus({ ...focus, [field]: e.target.value !== '' })} />
+                    }
+                    <label className="label">{field.charAt(0).toUpperCase() + field.slice(1)}</label>
+                  </div>
+                ))}
+                <button type="submit" className="btn">
+                  <i className="uil uil-navigator"></i>Send Message
+                </button>
+              </form>
             </div>
-            <form className="glass-card" style={{ padding: '2rem', borderRadius: '25px' }}>
-              {['username', 'email', 'phone', 'message'].map(field => (
-                <div key={field} className="input-container">
-                  {field === 'message' ?
-                    <textarea className="input" placeholder=" " onFocus={() => setFocus({ ...focus, [field]: true })} onBlur={(e) => setFocus({ ...focus, [field]: e.target.value !== '' })}></textarea> :
-                    <input type={field === 'email' ? 'email' : field === 'phone' ? 'tel' : 'text'} className="input" placeholder=" " onFocus={() => setFocus({ ...focus, [field]: true })} onBlur={(e) => setFocus({ ...focus, [field]: e.target.value !== '' })} />
-                  }
-                  <label className="label">{field.charAt(0).toUpperCase() + field.slice(1)}</label>
-                </div>
-              ))}
-              <button type="submit" className="btn">
-                <i className="uil uil-navigator"></i>Send Message
-              </button>
-            </form>
-          </div>
-        </section>
+          </section>
+        </div>
 
         <footer className="footer">
           <div className="">
