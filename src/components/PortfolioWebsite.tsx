@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Code } from 'lucide-react'
+import { ArrowRight, Code } from 'lucide-react'
 
 
 interface TimelineItem {
@@ -169,7 +169,7 @@ const PortfolioWebsite: React.FC = () => {
         .skills-per{height:100%;background:var(--skin);transition:width 1s ease;border-radius:10px;position:relative;overflow:hidden}
         .skills-per::after{content:'';position:absolute;top:0;left:0;height:100%;width:30px;background:linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);animation:slide 2s infinite}
         @keyframes slide{0%{transform:translateX(-30px)}100%{transform:translateX(200px)}}
-        .work-filters{display:flex;justify-content:center;gap:1rem;margin-bottom:3rem;flex-wrap:wrap}
+        .work-filters{display:flex;justify-content:center;gap:1rem;margin-bottom:0rem;flex-wrap:wrap}
         .work-item{padding:1rem 2rem;border:none;border-radius:25px;color:var(--text);cursor:pointer;transition:all 0.3s ease;font-weight:500;position:relative;overflow:hidden}
         .work-item::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(255,255,255,0.05);border-radius:25px;opacity:0;transition:opacity 0.3s ease}
         .work-item:hover::before{opacity:1}
@@ -181,7 +181,7 @@ const PortfolioWebsite: React.FC = () => {
         .work-img{width:100%;border-radius:20px;margin-bottom:1.5rem;transition:transform 0.3s ease;box-shadow:0 10px 25px rgba(0,0,0,0.1)}
         .work-card:hover .work-img{transform:scale(1.05)}
         .work-btn{color:var(--skin-solid);background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:.5rem;font-weight:600;transition:all 0.3s ease;padding:0.5rem 0}
-        .work-btn:hover{color:var(--title);transform:translateX(10px)}
+        .work-btn:hover{color:black;transform:translateX(10px)}
         .popup{position:fixed;inset:0;background:rgba(0,0,0,0.7);backdrop-filter:blur(10px);display:${popup.open ? 'flex' : 'none'};align-items:center;justify-content:center;z-index:1000;padding:1rem;animation:fadeIn 0.3s ease}
         @keyframes fadeIn{from{opacity:0}to{opacity:1}}
         .popup-content{border-radius:25px;padding:2.5rem;max-width:700px;position:relative;animation:slideUp 0.3s ease}
@@ -238,6 +238,8 @@ const PortfolioWebsite: React.FC = () => {
           .home-data{margin:0.7rem;padding:1rem; width: 95%;}
           .work-filters{gap:0.5rem}
           .work-item{padding:0.8rem 1.5rem;font-size:0.9rem}
+          .work-card{padding:1rem}
+          title{font-size:2.5rem;margin-bottom:0;}
         }
       `}</style>
 
@@ -375,98 +377,7 @@ const PortfolioWebsite: React.FC = () => {
 
           </section>
 
-          {/* work experience */}
-          <div className="min-h-screen mt-10 py-12 px-4 sm:px-6 lg:px-8">
-            <h2 className="title">My Experience</h2>
-
-            <div className="max-w-6xl mx-auto">
-              <div className="relative">
-                {/* Central Timeline Line */}
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-red-600 via-orange-500 to-red-600"></div>
-
-                {/* Timeline Items */}
-                {timelineData.map((item, index) => (
-                  <div key={index} className="relative mb-16 last:mb-0">
-                    <div className={`flex items-center ${item.position === 'left' ? 'flex-row-reverse' : 'flex-row'}`}>
-                      {/* Content Card */}
-                      <div className={`w-5/12 ${item.position === 'left' ? 'pr-12' : 'pl-12'}`}>
-                        <div className="bg-gradient-to-br from-orange-800 to-orange-700 border border-red-900/30 rounded-lg p-6 shadow-xl hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-300">
-                          <h3 className="text-2xl font-bold text-white mb-2">{item.title}</h3>
-                          <p className="text-orange-400 text-sm mb-3">{item.subtitle}</p>
-                          <ul className="space-y-2">
-                            {item.skills.map((skill, skillIndex) => (
-                              <li key={skillIndex} className="text-gray-300 text-sm flex items-start">
-                                <span className="text-red-500 mr-2 mt-1">•</span>
-                                <span>{skill}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </div>
-
-                      {/* Center Icon */}
-                      <div className="absolute left-1/2 transform -translate-x-1/2 flex flex-col items-center">
-                        <div className="w-14 h-14 rounded-full bg-gradient-to-br from-red-600 to-orange-500 flex items-center justify-center text-white shadow-lg shadow-orange-500/50 z-10">
-                          {item.icon}
-                        </div>
-                      </div>
-
-                      {/* Date Badge */}
-                      <div className={`w-5/12 ${item.position === 'left' ? 'pl-12 text-left' : 'pr-12 text-right'}`}>
-                        <div className="inline-block bg-gradient-to-r from-red-600 to-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
-                          {item.period}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="max-w-6xl mx-auto">
-              <div className="relative">
-                {/* Central Timeline Line */}
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-red-600 via-orange-500 to-red-600"></div>
-
-                {/* Timeline Items */}
-                {timelineData.map((item, index) => (
-                  <div key={index} className="relative mb-16 last:mb-0">
-                    <div className={`flex items-center ${item.position === 'left' ? 'flex-row-reverse' : 'flex-row'}`}>
-                      {/* Content Card */}
-                      <div className={`w-5/12 ${item.position === 'left' ? 'pr-12' : 'pl-12'}`}>
-                        <div className="bg-gradient-to-br from-orange-800 to-orange-700 border border-red-900/30 rounded-lg p-6 shadow-xl hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-300">
-                          <h3 className="text-2xl font-bold text-white mb-2">{item.title}</h3>
-                          <p className="text-orange-400 text-sm mb-3">{item.subtitle}</p>
-                          <ul className="space-y-2">
-                            {item.skills.map((skill, skillIndex) => (
-                              <li key={skillIndex} className="text-gray-300 text-sm flex items-start">
-                                <span className="text-red-500 mr-2 mt-1">•</span>
-                                <span>{skill}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </div>
-
-                      {/* Center Icon */}
-                      <div className="absolute left-1/2 transform -translate-x-1/2 flex flex-col items-center">
-                        <div className="w-14 h-14 rounded-full bg-gradient-to-br from-red-600 to-orange-500 flex items-center justify-center text-white shadow-lg shadow-orange-500/50 z-10">
-                          {item.icon}
-                        </div>
-                      </div>
-
-                      {/* Date Badge */}
-                      <div className={`w-5/12 ${item.position === 'left' ? 'pl-12 text-left' : 'pr-12 text-right'}`}>
-                        <div className="inline-block bg-gradient-to-r from-red-600 to-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
-                          {item.period}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+      
 
           {/* projects */}
           <section className="work section" id="projects">
@@ -497,9 +408,9 @@ const PortfolioWebsite: React.FC = () => {
             ))} */}
 
               <div className="work-card glass-card">
-                <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjhUGnZj4LWVTuS-m3i_aUyaTLlj1PDsOkYA&s' alt="" className="rounded-xl h-[40vh] w-100" />
+                {/* <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjhUGnZj4LWVTuS-m3i_aUyaTLlj1PDsOkYA&s' alt="" className="rounded-xl h-[40vh] w-100" /> */}
                 <h3 className='text-orange-600 font-bold mt-2 mb-2 text-2xl'>Dunon Pharmacy Mangement System</h3>
-                <ul className='list-disc ml-10'>
+                <ul className='list-disc ml-md-10 ml-5'>
                   <li>Has role-based dashboards for Admins and Pharmacist to manage a pharmacy.</li>
                   <li>Implemented backend for managing drugs, users and sales with RESTful APIs.</li>
                   <li>Implemented creating of sales for pharmacist and printing of tickets as well.</li>
@@ -513,19 +424,15 @@ const PortfolioWebsite: React.FC = () => {
               </div>
 
               <div className="work-card glass-card ">
-                <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjeHfJEYfMicfPAwzi1uV0WjsBMVV8uKI8EzjVG01rByY_Rz6ozhuONEE&s' alt="" className="rounded-xl h-[40vh] w-100" />
+                {/* <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjeHfJEYfMicfPAwzi1uV0WjsBMVV8uKI8EzjVG01rByY_Rz6ozhuONEE&s' alt="" className="rounded-xl h-[40vh] w-100" /> */}
                 <h3 className='text-orange-600 font-bold mt-2 mb-2 text-2xl'>Chips 'n' Munch</h3>
-                <ul className='list-disc ml-10'>
+                <ul className='list-disc ml-md-10 ml-5'>
                   <li>A website to display for a chips business.</li>
                   <li>Displays types of chips available, contact and seller detials.</li>
                 </ul>
-                <a
-                  href="https://chips-website-mauve.vercel.app"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="work-btn z-30 relative"
-                >
-                  Demo <i className="uil uil-arrow-right"></i>
+                <a href="https://chips-website-mauve.vercel.app" target="_blank" rel="noopener noreferrer"
+                  className="work-btn z-30 relative"> Demo <ArrowRight className='size-4'/>
+                  {/* Demo <i className="uil uil-arrow-right"></i> */}
                 </a>
               </div>
             </div>
@@ -552,7 +459,7 @@ const PortfolioWebsite: React.FC = () => {
             ))}
           </div>
         </section> */}
-
+{/* 
           <div className="modal">
             <div className="modal-content glass-card">
               <button className="modal-close" onClick={() => setModal(null)}>&times;</button>
@@ -564,7 +471,7 @@ const PortfolioWebsite: React.FC = () => {
                 ))}
               </ul>
             </div>
-          </div>
+          </div> */}
 
           {/* <section className="testimonials section">
           <h2 className="title">Testimonials</h2>
@@ -591,7 +498,7 @@ const PortfolioWebsite: React.FC = () => {
             <h2 className="title">Contact me</h2>
             <div className="contact-container container grid">
               <div>
-                {[{ icon: 'envelope-edit', title: 'Email', data: 'esitwitawiah@gmail.com' }, { icon: 'whatsapp', title: 'Whatsapp', data: '054 312 9196' }, { icon: 'github', title: 'Github', data: 'Esi-Twi', link: 'https://www./github.com/esi-twi/' }].map((contact, i) => (
+                {[{ icon: 'envelope-edit', title: 'Email', data: 'esitwitawiah@gmail.com' }, { icon: 'whatsapp', title: 'Whatsapp', data: '054 312 9196' }, { icon: 'github', title: 'Github', data: 'Esi-Twi', link: 'https://www.github.com/esi-twi/' }].map((contact, i) => (
                   <>
                     {contact.link ?
                       <a href={contact.link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}>
@@ -633,7 +540,7 @@ const PortfolioWebsite: React.FC = () => {
 
         <footer className="footer">
           <div className="">
-            <h2 className='text-white font-bold text-5xl'>Esi Twi Tawiah</h2>
+            <h2 className='text-white font-bold text-md-5xl text-3xl'>Esi Twi Tawiah</h2>
             <p className='mb-10 text-gray-300'>MERN Stack Developer</p>
             {/* <div className="footer-links">
               {['services', 'work', 'contact'].map(link => (
