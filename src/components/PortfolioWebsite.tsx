@@ -138,11 +138,11 @@ const PortfolioWebsite: React.FC = () => {
         .home::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:radial-gradient(circle at center, rgba(102,126,234,0.1) 0%, transparent 70%);pointer-events:none}
         .home-data{max-width:600px;padding:3rem;background:rgba(0,0,0,0.45);backdrop-filter:blur(20px);border-radius:30px;border:1px solid rgba(0,0,0,0.1);box-shadow:0 20px 40px rgba(0,0,0,0.2);animation:fadeInUp 1s ease;margin:2rem}
         @keyframes fadeInUp{from{opacity:0;transform:translateY(50px)}to{opacity:1;transform:translateY(0)}}
-        .home-title{font-size:2.6rem;white-space:nowrap;margin-bottom:.5rem;font-weight:700;background:linear-gradient(135deg, #667eea, #764ba2, #f093fb);background-size:200% 200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:gradientShift 3s ease-in-out infinite}
+        .home-title{font-size:2.6rem;margin-bottom:.5rem;font-weight:700;background:linear-gradient(135deg, #667eea, #764ba2, #f093fb);background-size:200% 200%;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:gradientShift 3s ease-in-out infinite}
         @keyframes gradientShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
         .home-subtitle{font-size:1.6rem;margin-bottom:0rem;color:white;font-weight:500}
         .home-desc{margin-bottom:2rem;line-height:1.2;font-size:1.1rem;color:rgb(123, 122, 122)}
-        .about{padding:8rem 0}.about-container{grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+        .about{padding:8rem 2rem}.about-container{grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
         .about-img{width:100%;border-radius:25px;box-shadow:0 20px 40px rgba(0,0,0,0.2);transition:transform 0.3s ease}
         .about-img:hover{transform:scale(1.05) rotate(2deg)}
         .about-info{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin:0.1rem 0}
@@ -223,16 +223,19 @@ const PortfolioWebsite: React.FC = () => {
           .main{margin-left:0}
         }
         @media(max-width:768px){
-          .main{margin-left:0}.sidebar{width:100%;transform:translateX(${sidebar ? '0' : '-100%'})}
+          .main{margin-left:0}.sidebar{width:100%;transform:translateX(${sidebar ? '-40%' : '-100%'})}
           .nav-logo{display:${sidebar ? 'flex' : 'none'}}
           .nav-menu{transform:none;position:relative;width:100%;top:auto;left:auto;height:100%;display:flex;justify-content:center}
           .nav-list{flex-direction:column;align-items:center;padding:2rem 0;height:100%;justify-content:center}
           .nav-link{padding:1rem 0;line-height:1.5;height:auto}
           .nav-link::before{bottom:0;top:auto}
-          .about-container,.skills-container,.contact-container{grid-template-columns:1fr;text-align:center;gap:3rem}
+          .skills-container,.contact-container{grid-template-columns:1fr;text-align:center;gap:3rem}
+          .about-container{grid-template-columns:1fr;text-left:center;gap:3rem}
           .work-container{grid-template-columns:1fr}
-          .home-title{font-size:2.5rem}
-          .home-data{margin:1rem;padding:2rem}
+          .home-title{font-size:2rem}
+          .home-subtitle{font-size:1.5rem}
+          .about{padding:8rem 0}
+          .home-data{margin:0.7rem;padding:1rem; width: 95%;}
           .work-filters{gap:0.5rem}
           .work-item{padding:0.8rem 1.5rem;font-size:0.9rem}
         }
@@ -242,7 +245,7 @@ const PortfolioWebsite: React.FC = () => {
         <i className="uil uil-bars"></i>
       </div>
 
-      <aside className="sidebar">
+      <aside className={`sidebar ${sidebar ? 'translate-x-0' : '-translate-x-100'}`}>
         <nav className="nav-menu">
           <div className="menu">
             <ul className="nav-list">
@@ -271,8 +274,8 @@ const PortfolioWebsite: React.FC = () => {
           </div>
         </section>
 
-        <div className='w-[90%] mx-auto'>
-          <section className="about section !mx-[5rem]" id="about">
+        <div className='mx-auto'>
+          <section className="about section" id="about">
             <h2 className="title">About me</h2>
             <div className="about-container container grid">
               <img src="../../assets/me.jpg" alt="me" className="about-img" />
@@ -375,6 +378,50 @@ const PortfolioWebsite: React.FC = () => {
           {/* work experience */}
           <div className="min-h-screen mt-10 py-12 px-4 sm:px-6 lg:px-8">
             <h2 className="title">My Experience</h2>
+
+            <div className="max-w-6xl mx-auto">
+              <div className="relative">
+                {/* Central Timeline Line */}
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-red-600 via-orange-500 to-red-600"></div>
+
+                {/* Timeline Items */}
+                {timelineData.map((item, index) => (
+                  <div key={index} className="relative mb-16 last:mb-0">
+                    <div className={`flex items-center ${item.position === 'left' ? 'flex-row-reverse' : 'flex-row'}`}>
+                      {/* Content Card */}
+                      <div className={`w-5/12 ${item.position === 'left' ? 'pr-12' : 'pl-12'}`}>
+                        <div className="bg-gradient-to-br from-orange-800 to-orange-700 border border-red-900/30 rounded-lg p-6 shadow-xl hover:shadow-2xl hover:shadow-orange-500/20 transition-all duration-300">
+                          <h3 className="text-2xl font-bold text-white mb-2">{item.title}</h3>
+                          <p className="text-orange-400 text-sm mb-3">{item.subtitle}</p>
+                          <ul className="space-y-2">
+                            {item.skills.map((skill, skillIndex) => (
+                              <li key={skillIndex} className="text-gray-300 text-sm flex items-start">
+                                <span className="text-red-500 mr-2 mt-1">•</span>
+                                <span>{skill}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+
+                      {/* Center Icon */}
+                      <div className="absolute left-1/2 transform -translate-x-1/2 flex flex-col items-center">
+                        <div className="w-14 h-14 rounded-full bg-gradient-to-br from-red-600 to-orange-500 flex items-center justify-center text-white shadow-lg shadow-orange-500/50 z-10">
+                          {item.icon}
+                        </div>
+                      </div>
+
+                      {/* Date Badge */}
+                      <div className={`w-5/12 ${item.position === 'left' ? 'pl-12 text-left' : 'pr-12 text-right'}`}>
+                        <div className="inline-block bg-gradient-to-r from-red-600 to-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold shadow-lg">
+                          {item.period}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
 
             <div className="max-w-6xl mx-auto">
               <div className="relative">
