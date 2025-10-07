@@ -131,7 +131,7 @@ const PortfolioWebsite: React.FC = () => {
         .nav-link::before{content:'';position:absolute;bottom:1.8rem;left:50%;width:0;height:2px;background:var(--skin-solid);transition:width 0.3s ease;transform:translateX(-50%)}
         .nav-link:hover,.nav-link.active{color:var(--skin);text-shadow:0 0 10px rgba(255,255,255,0.5)}
         .nav-link:hover::before,.nav-link.active::before{width:20px}
-        .nav-toggle{position:fixed;top:2rem;right:1.5rem;width:50px;height:45px;background:var(--glass);backdrop-filter:blur(15px);color:var(--title);border:1px solid var(--glass-border);border-radius:15px;cursor:pointer;z-index:1000;display:none;align-items:center;justify-content:center;transition:all 0.3s ease}
+        .nav-toggle{position:fixed;top:2rem;right:1.5rem;width:50px;height:45px;background:var(--skin);backdrop-filter:blur(15px);color:var(--title);border:1px solid var(--glass-border);border-radius:15px;cursor:pointer;z-index:1000;display:none;align-items:center;justify-content:center;transition:all 0.3s ease}
         .nav-toggle:hover{transform:scale(1.1);box-shadow:0 5px 15px rgba(0,0,0,0.2)}
         .main{margin-left:100px;min-height:100vh;position:relative}
         .home{background: url('../../assets/me.jpg') center/cover;height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;background-size: cover;}
@@ -146,11 +146,11 @@ const PortfolioWebsite: React.FC = () => {
         .about-img{width:100%;border-radius:25px;box-shadow:0 20px 40px rgba(0,0,0,0.2);transition:transform 0.3s ease}
         .about-img:hover{transform:scale(1.05) rotate(2deg)}
         .about-info{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin:0.1rem 0}
-        .about-box{padding:2rem;border-radius:20px;text-align:center;transition:all 0.3s ease;position:relative;overflow:hidden}
+        .about-box{padding:1rem;border-radius:20px;text-align:center;transition:all 0.3s ease;position:relative;overflow:hidden}
         .about-box::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg, rgba(102,126,234,0.1), rgba(118,75,162,0.1));border-radius:20px;transition:opacity 0.3s ease;opacity:0}
         .about-box:hover::before{opacity:1}
         .about-icon{font-size:2.5rem;color:var(--skin-solid);margin-bottom:1rem;transition:transform 0.3s ease}
-        .about-box:hover .about-icon{transform:scale(1.2) rotate(10deg)}
+        .about-box:hover .about-icon{transform:scale(1.2) rotate(10deg)}.about-box span {display: block;font-size:14px; white-space: nowrap;}
         .skills-container{grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
         .skills-header{display:flex;align-items:center;padding:1.5rem;border-radius:20px;cursor:pointer;margin-bottom:1.5rem;transition:all 0.3s ease;position:relative;overflow:hidden}
         .skills-header::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);transition:left 0.5s}
@@ -290,7 +290,7 @@ const PortfolioWebsite: React.FC = () => {
                   {[{ icon: 'award', title: 'Skills', sub: 'MERN Stack' }, { icon: 'suitcase-alt', title: 'Experience', sub: '2 Internships' }, { icon: 'award', title: '4+', sub: 'Hackations' }].map((item, i) => (
                     <div key={i} className="about-box">
                       <i className={`uil uil-${item.icon} about-icon`}></i>
-                      <h3>{item.title}</h3>
+                      {/* <h3>{item.title}</h3> */}
                       <span>{item.sub}</span>
                     </div>
                   ))}
@@ -377,7 +377,6 @@ const PortfolioWebsite: React.FC = () => {
 
           </section>
 
-      
 
           {/* projects */}
           <section className="work section" id="projects">
