@@ -146,7 +146,7 @@ const PortfolioWebsite: React.FC = () => {
         .about-img{width:100%;border-radius:25px;box-shadow:0 20px 40px rgba(0,0,0,0.2);transition:transform 0.3s ease}
         .about-img:hover{transform:scale(1.05) rotate(2deg)}
         .about-info{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin:0.1rem 0}
-        .about-box{padding:1rem;border-radius:20px;text-align:center;transition:all 0.3s ease;position:relative;overflow:hidden}
+        .about-box{padding:0.5rem;border-radius:20px;text-align:center;transition:all 0.3s ease;position:relative;overflow:hidden}
         .about-box::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg, rgba(102,126,234,0.1), rgba(118,75,162,0.1));border-radius:20px;transition:opacity 0.3s ease;opacity:0}
         .about-box:hover::before{opacity:1}
         .about-icon{font-size:2.5rem;color:var(--skin-solid);margin-bottom:1rem;transition:transform 0.3s ease}
@@ -238,7 +238,7 @@ const PortfolioWebsite: React.FC = () => {
           .home-data{margin:0.7rem;padding:1rem; width: 95%;}
           .work-filters{gap:0.5rem}
           .work-item{padding:0.8rem 1.5rem;font-size:0.9rem}
-          .work-card{padding:1rem}
+          .work-card{padding:1.5rem 1rem}
           title{font-size:2.5rem;margin-bottom:0;}
         }
       `}</style>
@@ -287,7 +287,7 @@ const PortfolioWebsite: React.FC = () => {
                   I love creating efficient, scalable, and user-friendly solutions that solve real-world problems.
                 </p>
                 <div className="about-info">
-                  {[{ icon: 'award', title: 'Skills', sub: 'MERN Stack' }, { icon: 'suitcase-alt', title: 'Experience', sub: '2 Internships' }, { icon: 'award', title: '4+', sub: 'Hackations' }].map((item, i) => (
+                  {[{ icon: 'code', title: 'Skills', sub: 'MERN Stack' }, { icon: 'suitcase-alt', title: 'Experience', sub: '2 Internships' }, { icon: 'award', title: '4+', sub: 'Hackations' }].map((item, i) => (
                     <div key={i} className="about-box">
                       <i className={`uil uil-${item.icon} about-icon`}></i>
                       {/* <h3>{item.title}</h3> */}
@@ -377,6 +377,7 @@ const PortfolioWebsite: React.FC = () => {
 
           </section>
 
+      
 
           {/* projects */}
           <section className="work section" id="projects">
@@ -386,7 +387,7 @@ const PortfolioWebsite: React.FC = () => {
               <button key={f} className={`work-item glass-card ${activeFilter === f ? 'active' : ''}`} onClick={() => setActiveFilter(f)}>{f.charAt(0).toUpperCase() + f.slice(1)}</button>
             ))} */}
             </div>
-            <div className="work-container container grid">
+            <div className="work-container container grid" style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
               {/* {filtered.map(work => (
               <div key={work.id} className="work-card glass-card w-3/7">
                 <img src={work.img} alt="" className="rounded-xl h-[40vh] w-100" />
@@ -406,24 +407,26 @@ const PortfolioWebsite: React.FC = () => {
               </div>
             ))} */}
 
-              <div className="work-card glass-card">
-                {/* <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjhUGnZj4LWVTuS-m3i_aUyaTLlj1PDsOkYA&s' alt="" className="rounded-xl h-[40vh] w-100" /> */}
-                <h3 className='text-orange-600 font-bold mt-2 mb-2 text-2xl'>Dunon Pharmacy Mangement System</h3>
-                <ul className='list-disc ml-md-10 ml-5'>
-                  <li>Has role-based dashboards for Admins and Pharmacist to manage a pharmacy.</li>
-                  <li>Implemented backend for managing drugs, users and sales with RESTful APIs.</li>
-                  <li>Implemented creating of sales for pharmacist and printing of tickets as well.</li>
-                  <li>Designed schemas for drugs, sales and users using mongoose.</li>
-                  <li>Built a data visualization board to help Admins make informed decisions.</li>
-                  <li>Designed a responsive UI and used zustand for state management.</li>
-                </ul>
+              <div className="work-card glass-card md:w-[50%] " >
+                <img src='../../assets/dunon-1.png' alt="" className="rounded-xl h-[40vh] w-100 mb-8" />
+                <div>
+                  <h3 className='text-orange-600 font-bold mt-2 mb-2 text-2xl'>Dunon Pharmacy Mangement System</h3>
+                  <ul className='list-disc ml-md-10 ml-5'>
+                    <li>Has role-based dashboards for Admins and Pharmacist to manage a pharmacy.</li>
+                    <li>Implemented backend for managing drugs, users and sales with RESTful APIs.</li>
+                    <li>Implemented creating of sales for pharmacist and printing of tickets as well.</li>
+                    <li>Designed schemas for drugs, sales and users using mongoose.</li>
+                    <li>Built a data visualization board to help Admins make informed decisions.</li>
+                    <li>Designed a responsive UI and used zustand for state management.</li>
+                  </ul>
+                </div>
                 {/* <button className="work-btn" onClick={() => setPopup({ open: true, item: work })}>
                   Demo <i className="uil uil-arrow-right"></i>
                 </button> */}
               </div>
 
-              <div className="work-card glass-card ">
-                {/* <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjeHfJEYfMicfPAwzi1uV0WjsBMVV8uKI8EzjVG01rByY_Rz6ozhuONEE&s' alt="" className="rounded-xl h-[40vh] w-100" /> */}
+              {/* <div className="work-card glass-card ">
+                <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjeHfJEYfMicfPAwzi1uV0WjsBMVV8uKI8EzjVG01rByY_Rz6ozhuONEE&s' alt="" className="rounded-xl h-[40vh] w-100" />
                 <h3 className='text-orange-600 font-bold mt-2 mb-2 text-2xl'>Chips 'n' Munch</h3>
                 <ul className='list-disc ml-md-10 ml-5'>
                   <li>A website to display for a chips business.</li>
@@ -431,9 +434,9 @@ const PortfolioWebsite: React.FC = () => {
                 </ul>
                 <a href="https://chips-website-mauve.vercel.app" target="_blank" rel="noopener noreferrer"
                   className="work-btn z-30 relative"> Demo <ArrowRight className='size-4'/>
-                  {/* Demo <i className="uil uil-arrow-right"></i> */}
+                  Demo <i className="uil uil-arrow-right"></i>
                 </a>
-              </div>
+              </div> */}
             </div>
           </section>
 
@@ -458,7 +461,7 @@ const PortfolioWebsite: React.FC = () => {
             ))}
           </div>
         </section> */}
-{/* 
+          {/* 
           <div className="modal">
             <div className="modal-content glass-card">
               <button className="modal-close" onClick={() => setModal(null)}>&times;</button>
